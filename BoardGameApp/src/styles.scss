@@ -14,9 +14,19 @@ textarea {
 
 .game-page {
   padding: 28px 16px;
+  display: flex;
+  flex-direction: column;
 
   h1 {
     font-size: 36px;
     margin: 12px 0;
   }
+}
+
+.flex {
+  display: flex;
+}
+
+.just-space-between {
+  justify-content: space-between;
 }

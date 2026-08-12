@@ -8,7 +8,26 @@
   font-size: 22px;
 }
 
+.game-page {
+  gap: 24px;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+
+  button {
+    width: 48px;
+  }
+
+  .tm-logo {
+    width: 50dvw;
+    height: fit-content;
+  }
+}
+
 .code-tests {
   display: flex;
-  gap: 16px;
+  justify-content: space-between;
+  align-items: center;
 }
