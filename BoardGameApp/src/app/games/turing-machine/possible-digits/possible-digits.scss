@@ -24,6 +24,21 @@ td {
   text-align: center;
 }
 
+td {
+  cursor: pointer;
+}
+
 .tm-digit-icon {
   width: 24px;
+}
+
+.digit-state {
+  width: 0;
+  height: 0;
+  
+  img {
+    width: 28px;
+    padding: 2px;
+    margin: 0 auto;
+  }
 }

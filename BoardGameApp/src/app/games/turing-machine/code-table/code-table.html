@@ -15,11 +15,13 @@
 
     <tbody>
         @for (row of [1,2,3,4,5]; track row) {
-            <tr>
-                @for (column of [1,2,3]; track column) {
-                    <td></td>
-                }
-            </tr>
+        <tr>
+            @for (column of [1,2,3]; track column) {
+            <td>
+                <input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" class="code-digit">
+            </td>
+            }
+        </tr>
         }
     </tbody>
 </table>
