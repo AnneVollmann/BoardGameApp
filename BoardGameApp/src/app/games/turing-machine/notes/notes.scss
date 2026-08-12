@@ -1,0 +1,18 @@
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+tbody td {
+  border-right: 1px solid;
+  border-bottom: 1px solid;
+  padding: 6px 8px 4px 4px;
+}
+
+tbody td:last-child {
+  border-right: none;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}

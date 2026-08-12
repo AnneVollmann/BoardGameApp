@@ -1,0 +1,27 @@
+table {
+  border-collapse: collapse;
+}
+
+tbody td {
+  border-right: 1px solid var(--tm-background);
+  border-bottom: 1px solid var(--tm-background);
+}
+
+tbody td:last-child {
+  border-right: none;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+th,
+td {
+  width: 28px;
+  height: 28px;
+  text-align: center;
+}
+
+.tm-digit-icon {
+    width: 24px;
+}

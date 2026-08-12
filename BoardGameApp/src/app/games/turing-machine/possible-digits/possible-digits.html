@@ -1,1 +1,25 @@
-<p>possible-digits works!</p>
+<table>
+    <thead>
+        <tr>
+            <th>
+                <img class="tm-digit-icon" src="icons/tm-triangle.svg" alt="blue triangle">
+            </th>
+            <th>
+                <img class="tm-digit-icon" src="icons/tm-square.svg" alt="yellow square">
+            </th>
+            <th>
+                <img class="tm-digit-icon" src="icons/tm-circle.svg" alt="purple circle">
+            </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @for (row of [5,4,3,2,1]; track row) {
+            <tr>
+                @for (column of [1,2,3]; track column) {
+                    <td>{{row}}</td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>
