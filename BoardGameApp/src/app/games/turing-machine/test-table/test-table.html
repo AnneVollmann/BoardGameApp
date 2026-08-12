@@ -8,12 +8,23 @@
     </thead>
 
     <tbody>
-        @for (row of rows; track row) {
+        @for (row of [1,2,3,4,5]; track row) {
         <tr>
             @for (column of columns; track column) {
-                <td>
-                    <input type="checkbox">
-                </td>
+            <td (click)="toggleState(row, column)">
+                <div class="test-state">
+                    <img
+                        [class.d-none]="getState(row, column) !== 'cross'"
+                        src="icons/tm-cross.svg"
+                        alt="cross">
+                    <img
+                    [class.d-none]="getState(row, column) !== 'check'"
+                        src="icons/tm-check.svg"
+                        alt="check"
+                        style="margin-left: 8px; margin-left: 8px;">
+                </div>
+                <img src="icons/tm-checkbox.svg" alt="checkbox">
+            </td>
             }
         </tr>
         }

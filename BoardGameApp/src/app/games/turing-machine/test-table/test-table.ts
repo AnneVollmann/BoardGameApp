@@ -8,11 +8,27 @@ import { Component } from '@angular/core';
 })
 export class TestTable {
   columns = ['A', 'B', 'C', 'D', 'E', 'F'];
-  rows = [
-    { A: false, B: false, C: false, D: false, E: false, F: false },
-    { A: false, B: false, C: false, D: false, E: false, F: false },
-    { A: false, B: false, C: false, D: false, E: false, F: false },
-    { A: false, B: false, C: false, D: false, E: false, F: false },
-    { A: false, B: false, C: false, D: false, E: false, F: false },
-  ];
+  states: Record<string, 'none' | 'cross' | 'check'> = {};
+
+  toggleState(row: number, column: string) {
+    const key = `${row}-${column}`;
+
+    switch (this.states[key]) {
+      case undefined:
+      case 'none':
+        this.states[key] = 'cross';
+        break;
+      case 'cross':
+        this.states[key] = 'check';
+        break;
+
+      case 'check':
+        this.states[key] = 'none';
+        break;
+    }
+  }
+
+  getState(row: number, column: string) {
+    return this.states[`${row}-${column}`] ?? 'none';
+  }
 }

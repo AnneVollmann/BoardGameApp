@@ -15,8 +15,20 @@ tbody tr:last-child td {
   border-bottom: none;
 }
 
-th, td {
+th,
+td {
   width: 30px;
   height: 30px;
   text-align: center;
+}
+
+.test-state {
+  width: 0;
+  height: 0;
+
+  img {
+    width: 20px;
+    margin-top: 2px;
+    margin-left: 4px;
+  }
 }
