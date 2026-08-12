@@ -15,14 +15,22 @@
 header {
   display: flex;
   flex-direction: column;
+  gap: 16px;
 
   button {
     width: 48px;
   }
 
-  .tm-logo {
-    width: 50dvw;
-    height: fit-content;
+  .game-overview {
+    display: flex;
+    gap: 32px;
+    justify-content: center;
+    align-items: center;
+
+    .tm-logo {
+      width: 40dvw;
+      height: fit-content;
+    }
   }
 }
 
