@@ -7,5 +7,4 @@ import { Component } from '@angular/core';
   styleUrl: './code-table.scss',
 })
 export class CodeTable {
-
 }

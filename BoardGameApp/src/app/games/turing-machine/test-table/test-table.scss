@@ -1,0 +1,23 @@
+table {
+  border-collapse: collapse;
+}
+
+tbody td {
+  border-right: 1px solid var(--tm-background);
+  border-bottom: 1px solid var(--tm-background);
+}
+
+tbody td:last-child {
+  border-right: none;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+
+th, td {
+  width: 32px;
+  height: 32px;
+  text-align: center;
+}
