@@ -26,6 +26,7 @@ import { TuringMachineStorageService } from '../../services/turing-machine-stora
 })
 export class TuringMachine {
   game: TuringMachineState;
+  confirmDelete = false;
 
   constructor(private storage: TuringMachineStorageService) {
     this.game = this.storage.load() ?? createInitialTuringMachineState();
@@ -35,8 +36,17 @@ export class TuringMachine {
     this.storage.save(this.game);
   }
 
+  askDelete() {
+    this.confirmDelete = true;
+
+    setTimeout(() => {
+      this.confirmDelete = false;
+    }, 2000);
+  }
+
   deleteGame() {
     this.storage.delete();
     this.game = createInitialTuringMachineState();
+    this.confirmDelete = false;
   }
 }

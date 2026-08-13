@@ -3,11 +3,18 @@
         <div class="header-btns">
             <button>
                 <a routerLink="/">
-                    <img src="/icons/arrow-back.svg" alt="button-back">
+                    <img src="/icons/btn-arrow-back.svg" alt="button-back">
                 </a>
             </button>
-            <button (click)="deleteGame()">
-                <img src="/icons/arrow-delete.svg" alt="button-delete">
+            <button (click)="confirmDelete ? deleteGame() : askDelete()">
+                <img
+                    [src]="confirmDelete
+                        ? '/icons/btn-trash.svg'
+                        : '/icons/btn-x.svg'"
+                    [alt]="confirmDelete
+                        ? 'delete'
+                        : 'confirm-delete'"
+                >
             </button>
         </div>
 
