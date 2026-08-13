@@ -1,10 +1,20 @@
 <div class="game-information">
     <div style="border-bottom-left-radius: 0px; border-bottom-right-radius: 0px;">
         <img src="/icons/tm-person.svg" alt="icon-person">
-        <input type="text">
+        <input
+          type="text"
+          [value]="name()"
+          (input)="onNameInput($event)"
+        >
     </div>
     <div style="border-top-left-radius: 0px; border-top-right-radius: 0px;">
         <img src="/icons/tm-hash.svg" alt="icon-hash">
-        <input type="text" inputmode="numeric" pattern="[0-9]">
+        <input
+          type="text"
+          inputmode="numeric"
+          pattern="[0-9]"
+          [value]="gameNumber()"
+          (input)="onGameNumberInput($event)"
+        >
     </div>
 </div>

@@ -8,7 +8,12 @@
 
         <div class="game-overview">
             <img class="tm-logo" src="/img/turing-machine.png" alt="turing-machine-logo">
-            <app-game-information/>
+            <app-game-information
+                [name]="game.name"
+                [gameNumber]="game.gameNumber"
+                (nameChange)="game.name = $event"
+                (gameNumberChange)="game.gameNumber = $event"
+            />
         </div>
     </header>
 
