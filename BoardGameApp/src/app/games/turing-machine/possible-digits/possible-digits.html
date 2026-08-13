@@ -16,15 +16,15 @@
     <tbody>
         @for (row of [5,4,3,2,1]; track row) {
         <tr>
-            @for (column of [1,2,3]; track column) {
+            @for (column of columns; track column) {
             <td (click)="toggleState(row, column)">
                 <div class="digit-state">
                     <img
-                        [class.d-none]="getState(row, column) !== 'cross'"
+                        [class.d-none]="getState(row, column) !== 'crossed'"
                         src="icons/tm-cross.svg"
                         alt="cross">
                     <img
-                        [class.d-none]="getState(row, column) !== 'check'"
+                        [class.d-none]="getState(row, column) !== 'checked'"
                         src="icons/tm-mark-circle.svg"
                         alt="circle"
                         style="margin-top: -2px">

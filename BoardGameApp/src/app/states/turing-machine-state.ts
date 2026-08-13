@@ -2,7 +2,7 @@ export interface TuringMachineState {
   name: string;
   gameNumber: string;
   codeTests: CodeTest[];
-  possibleDigits: PossibleDigits;
+  codeDigits: CodeDigits;
   notes: TestNote[];
 }
 
@@ -15,7 +15,7 @@ export interface CodeTest {
   tests: Record<TestColumn, TestState>;
 }
 
-export interface PossibleDigits {
+export interface CodeDigits {
   blueTriangle: DigitState[];
   yellowSquare: DigitState[];
   purpleCircle: DigitState[];
@@ -36,7 +36,7 @@ export const initialTuringMachineState: TuringMachineState = {
   name: '',
   gameNumber: '',
   codeTests: createCodeTests(),
-  possibleDigits: {
+  codeDigits: {
     blueTriangle: createDigits(),
     yellowSquare: createDigits(),
     purpleCircle: createDigits(),

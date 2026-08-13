@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
+import { CodeDigits } from '../../../states/turing-machine-state';
 
 @Component({
   selector: 'app-possible-digits',
@@ -7,27 +8,42 @@ import { Component } from '@angular/core';
   styleUrl: './possible-digits.scss',
 })
 export class PossibleDigits {
-  states: Record<string, 'none' | 'cross' | 'check'> = {};
+  codeDigits = input.required<CodeDigits>();
 
-  toggleState(row: number, column: number) {
-    const key = `${row}-${column}`;
+  columns: (keyof CodeDigits)[] = [
+    'blueTriangle',
+    'yellowSquare',
+    'purpleCircle',
+  ];
 
-    switch (this.states[key]) {
-      case undefined:
-      case 'none':
-        this.states[key] = 'cross';
+  toggleState(row: number, column: keyof CodeDigits) {
+    const digit = this.codeDigits()[column].find(
+      (digit) => digit.value === row,
+    );
+
+    if (!digit) return;
+
+    switch (digit.state) {
+      case 'empty':
+        digit.state = 'crossed';
         break;
-      case 'cross':
-        this.states[key] = 'check';
+
+      case 'crossed':
+        digit.state = 'checked';
         break;
 
-      case 'check':
-        this.states[key] = 'none';
+      case 'checked':
+        digit.state = 'empty';
         break;
     }
+
+    console.log(this.codeDigits());
   }
 
-  getState(row: number, column: number) {
-    return this.states[`${row}-${column}`] ?? 'none';
+  getState(row: number, column: keyof CodeDigits) {
+    return (
+      this.codeDigits()[column].find((digit) => digit.value === row)?.state ??
+      'empty'
+    );
   }
 }
