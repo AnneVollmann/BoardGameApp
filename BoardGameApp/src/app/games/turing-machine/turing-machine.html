@@ -13,9 +13,13 @@
     </header>
 
     <div class="code-tests">
-        <app-code-table />
+        <app-code-table
+            [codeTests]="game.codeTests"
+        />
 
-        <app-test-table />
+        <app-test-table
+            [codeTests]="game.codeTests"
+        />
 
         <app-possible-digits />
     </div>

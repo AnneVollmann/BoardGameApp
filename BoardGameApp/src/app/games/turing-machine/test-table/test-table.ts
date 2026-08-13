@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
+import { CodeTest, TestColumn, TestState } from '../../../states/turing-machine-state';
 
 @Component({
   selector: 'app-test-table',
@@ -7,28 +8,30 @@ import { Component } from '@angular/core';
   styleUrl: './test-table.scss',
 })
 export class TestTable {
-  columns = ['A', 'B', 'C', 'D', 'E', 'F'];
-  states: Record<string, 'none' | 'cross' | 'check'> = {};
+  codeTests = input.required<CodeTest[]>();
+  columns: TestColumn[] = ['A', 'B', 'C', 'D', 'E', 'F'];
 
-  toggleState(row: number, column: string) {
-    const key = `${row}-${column}`;
+  toggleState(row: number, column: TestColumn) {
+    const test = this.codeTests()[row].tests;
 
-    switch (this.states[key]) {
-      case undefined:
-      case 'none':
-        this.states[key] = 'cross';
-        break;
-      case 'cross':
-        this.states[key] = 'check';
+    switch (test[column]) {
+      case 'empty':
+        test[column] = 'crossed';
         break;
 
-      case 'check':
-        this.states[key] = 'none';
+      case 'crossed':
+        test[column] = 'checked';
+        break;
+
+      case 'checked':
+        test[column] = 'empty';
         break;
     }
+
+    console.log(this.codeTests())
   }
 
-  getState(row: number, column: string) {
-    return this.states[`${row}-${column}`] ?? 'none';
+  getState(row: number, column: TestColumn): TestState {
+    return this.codeTests()[row].tests[column];
   }
 }

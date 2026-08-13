@@ -14,9 +14,9 @@
     </thead>
 
     <tbody>
-        @for (row of [1,2,3,4,5]; track row) {
+        @for (row of [0,1,2,3,4]; track row) {
         <tr>
-            @for (column of [1,2,3]; track column) {
+            @for (column of [0,1,2]; track column) {
             <td>
                 <input
                     #codeDigit
@@ -25,7 +25,7 @@
                     inputmode="numeric"
                     pattern="[0-9]"
                     class="code-digit"
-                    (input)="onDigitInput($event)">
+                    (input)="onDigitInput($event, row, column)">
             </td>
             }
         </tr>

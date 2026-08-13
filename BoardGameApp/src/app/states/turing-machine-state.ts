@@ -8,16 +8,11 @@ export interface TuringMachineState {
 
 export type TestState = 'empty' | 'crossed' | 'checked';
 
+export type TestColumn = 'A' | 'B' | 'C' | 'D' | 'E' | 'F';
+
 export interface CodeTest {
-  code: string;
-  tests: {
-    A: TestState;
-    B: TestState;
-    C: TestState;
-    D: TestState;
-    E: TestState;
-    F: TestState;
-  };
+  code: string[];
+  tests: Record<TestColumn, TestState>;
 }
 
 export interface PossibleDigits {
@@ -40,7 +35,7 @@ export interface TestNote {
 export const initialTuringMachineState: TuringMachineState = {
   name: '',
   gameNumber: '',
-  codeTests: [],
+  codeTests: createCodeTests(),
   possibleDigits: {
     blueTriangle: createDigits(),
     yellowSquare: createDigits(),
@@ -48,6 +43,20 @@ export const initialTuringMachineState: TuringMachineState = {
   },
   notes: [],
 };
+
+function createCodeTests(): CodeTest[] {
+  return Array.from({ length: 5 }, () => ({
+    code: ['', '', ''],
+    tests: {
+      A: 'empty',
+      B: 'empty',
+      C: 'empty',
+      D: 'empty',
+      E: 'empty',
+      F: 'empty'
+    }
+  }));
+}
 
 function createDigits(): DigitState[] {
   return [1, 2, 3, 4, 5].map((value) => ({
