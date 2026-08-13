@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { CodeDigits } from '../../../states/turing-machine-state';
 
 @Component({
@@ -9,6 +9,7 @@ import { CodeDigits } from '../../../states/turing-machine-state';
 })
 export class PossibleDigits {
   codeDigits = input.required<CodeDigits>();
+  codeDigitsChange = output<CodeDigits>();
 
   columns: (keyof CodeDigits)[] = [
     'blueTriangle',
@@ -37,6 +38,7 @@ export class PossibleDigits {
         break;
     }
 
+    this.codeDigitsChange.emit({ ...this.codeDigits() });
     console.log(this.codeDigits());
   }
 

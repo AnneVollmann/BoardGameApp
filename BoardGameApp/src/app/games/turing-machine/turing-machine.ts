@@ -6,9 +6,9 @@ import { PossibleDigits } from './possible-digits/possible-digits';
 import { Notes } from './notes/notes';
 import { GameInformation } from './game-information/game-information';
 import {
-  TuringMachineState,
-  initialTuringMachineState
+  TuringMachineState, createInitialTuringMachineState
 } from '../../states/turing-machine-state';
+import { TuringMachineStorageService } from '../../services/turing-machine-storage';
 
 @Component({
   selector: 'app-turing-machine',
@@ -17,5 +17,17 @@ import {
   styleUrl: './turing-machine.scss',
 })
 export class TuringMachine {
-  game: TuringMachineState = initialTuringMachineState;
+  game: TuringMachineState;
+
+  constructor(
+    private storage: TuringMachineStorageService
+  ) {
+    this.game =
+      this.storage.load()
+      ?? createInitialTuringMachineState();
+  }
+
+  saveGame() {
+    this.storage.save(this.game);
+  }
 }

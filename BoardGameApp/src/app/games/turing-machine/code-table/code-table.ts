@@ -1,6 +1,7 @@
 import {
   Component,
   input,
+  output,
   ElementRef,
   QueryList,
   ViewChildren,
@@ -15,6 +16,8 @@ import { CodeTest } from '../../../states/turing-machine-state';
 })
 export class CodeTable {
   codeTests = input.required<CodeTest[]>();
+  codeTestsChange = output<CodeTest[]>();
+  
   @ViewChildren('codeDigit')
   codeDigits!: QueryList<ElementRef<HTMLInputElement>>;
 
@@ -25,17 +28,18 @@ export class CodeTable {
 
     if (input.value === '') {
       this.codeTests()[row].code[column] = '';
+      this.codeTests()[row].code[column] = input.value;
       return;
     }
 
     this.codeTests()[row].code[column] = input.value;
 
+    this.codeTestsChange.emit([...this.codeTests()]);
+
     const inputs = this.codeDigits.toArray();
     const currentIndex = inputs.findIndex(
       (item) => item.nativeElement === input,
     );
-
-    console.log(this.codeTests());
     
     if ((currentIndex + 1) % 3 === 0) {
       input.blur();

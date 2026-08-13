@@ -12,7 +12,7 @@
                 [name]="game.name"
                 [gameNumber]="game.gameNumber"
                 (nameChange)="game.name = $event"
-                (gameNumberChange)="game.gameNumber = $event"
+                (gameNumberChange)="game.gameNumber = $event; saveGame()"
             />
         </div>
     </header>
@@ -20,18 +20,22 @@
     <div class="code-tests">
         <app-code-table
             [codeTests]="game.codeTests"
+            (codeTestsChange)="game.codeTests = $event; saveGame()"
         />
 
         <app-test-table
             [codeTests]="game.codeTests"
+            (codeTestsChange)="game.codeTests = $event; saveGame()"
         />
 
         <app-possible-digits
-            [codeDigits]="game.codeDigits"/>
+            [codeDigits]="game.codeDigits"
+            (codeDigitsChange)="game.codeDigits = $event; saveGame()"/>
     </div>
 
     <app-notes
       [notes]="game.notes"
-      (noteChange)="game.notes = $event"
+      (noteChange)="game.notes = $event; saveGame()"
     />
+
 </section>

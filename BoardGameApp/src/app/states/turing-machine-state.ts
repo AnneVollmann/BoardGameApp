@@ -32,17 +32,19 @@ export interface Note {
   resolution: string;
 }
 
-export const initialTuringMachineState: TuringMachineState = {
-  name: '',
-  gameNumber: '',
-  codeTests: createCodeTests(),
-  codeDigits: {
-    blueTriangle: createDigits(),
-    yellowSquare: createDigits(),
-    purpleCircle: createDigits(),
-  },
-  notes: createNotes(),
-};
+export function createInitialTuringMachineState(): TuringMachineState {
+  return {
+    name: '',
+    gameNumber: '',
+    codeTests: createCodeTests(),
+    codeDigits: {
+      blueTriangle: createDigits(),
+      yellowSquare: createDigits(),
+      purpleCircle: createDigits(),
+    },
+    notes: createNotes(),
+  };
+}
 
 function createCodeTests(): CodeTest[] {
   return Array.from({ length: 5 }, () => ({
@@ -53,8 +55,8 @@ function createCodeTests(): CodeTest[] {
       C: 'empty',
       D: 'empty',
       E: 'empty',
-      F: 'empty'
-    }
+      F: 'empty',
+    },
   }));
 }
 
@@ -66,9 +68,9 @@ function createDigits(): DigitState[] {
 }
 
 function createNotes(): Note[] {
-  return ['A', 'B', 'C', 'D', 'E', 'F'].map(letter => ({
+  return ['A', 'B', 'C', 'D', 'E', 'F'].map((letter) => ({
     letter,
     notes: '',
-    resolution: ''
+    resolution: '',
   }));
 }

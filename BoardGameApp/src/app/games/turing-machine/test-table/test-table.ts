@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { CodeTest, TestColumn, TestState } from '../../../states/turing-machine-state';
 
 @Component({
@@ -9,6 +9,7 @@ import { CodeTest, TestColumn, TestState } from '../../../states/turing-machine-
 })
 export class TestTable {
   codeTests = input.required<CodeTest[]>();
+  codeTestsChange = output<CodeTest[]>();
   columns: TestColumn[] = ['A', 'B', 'C', 'D', 'E', 'F'];
 
   toggleState(row: number, column: TestColumn) {
@@ -27,7 +28,7 @@ export class TestTable {
         test[column] = 'empty';
         break;
     }
-
+    this.codeTestsChange.emit([...this.codeTests()]);
     console.log(this.codeTests())
   }
 

@@ -25,6 +25,7 @@
                     inputmode="numeric"
                     pattern="[0-9]"
                     class="code-digit"
+                    [value]="codeTests()[row].code[column]"
                     (input)="onDigitInput($event, row, column)">
             </td>
             }
