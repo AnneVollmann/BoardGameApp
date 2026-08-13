@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
   styleUrl: './possible-digits.scss',
 })
 export class PossibleDigits {
-  states: Record<string, 'none' | 'cross' | 'circle'> = {};
+  states: Record<string, 'none' | 'cross' | 'check'> = {};
 
   toggleState(row: number, column: number) {
     const key = `${row}-${column}`;
@@ -18,10 +18,10 @@ export class PossibleDigits {
         this.states[key] = 'cross';
         break;
       case 'cross':
-        this.states[key] = 'circle';
+        this.states[key] = 'check';
         break;
 
-      case 'circle':
+      case 'check':
         this.states[key] = 'none';
         break;
     }

@@ -5,6 +5,10 @@ import { TestTable } from './test-table/test-table';
 import { PossibleDigits } from './possible-digits/possible-digits';
 import { Notes } from './notes/notes';
 import { GameInformation } from './game-information/game-information';
+import {
+  TuringMachineState,
+  initialTuringMachineState
+} from '../../states/turing-machine-state';
 
 @Component({
   selector: 'app-turing-machine',
@@ -13,5 +17,5 @@ import { GameInformation } from './game-information/game-information';
   styleUrl: './turing-machine.scss',
 })
 export class TuringMachine {
-
+  game: TuringMachineState = initialTuringMachineState;
 }
