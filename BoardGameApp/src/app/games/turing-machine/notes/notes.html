@@ -3,7 +3,10 @@
         <tr>
             @for (column of columns.slice(0, 2); track column) {
             <td>
-                <app-test-note [letter]="column" />
+                <app-test-note
+                    [note]="notes()[$index]"
+                    (noteChange)="updateNote($index, $event)"
+                />
             </td>
             }
         </tr>
@@ -11,7 +14,10 @@
         <tr>
             @for (column of columns.slice(2, 4); track column) {
             <td>
-                <app-test-note [letter]="column" />
+                <app-test-note
+                    [note]="notes()[$index + 2]"
+                    (noteChange)="updateNote($index, $event)"
+                />
             </td>
             }
         </tr>
@@ -19,7 +25,10 @@
         <tr>
             @for (column of columns.slice(4, 6); track column) {
             <td>
-                <app-test-note [letter]="column" />
+                <app-test-note
+                    [note]="notes()[$index + 4]"
+                    (noteChange)="updateNote($index, $event)"
+                />
             </td>
             }
         </tr>

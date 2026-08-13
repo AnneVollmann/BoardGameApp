@@ -3,7 +3,7 @@ export interface TuringMachineState {
   gameNumber: string;
   codeTests: CodeTest[];
   codeDigits: CodeDigits;
-  notes: TestNote[];
+  notes: Note[];
 }
 
 export type TestState = 'empty' | 'crossed' | 'checked';
@@ -26,7 +26,7 @@ export interface DigitState {
   state: TestState;
 }
 
-export interface TestNote {
+export interface Note {
   letter: string;
   notes: string;
   resolution: string;
@@ -41,7 +41,7 @@ export const initialTuringMachineState: TuringMachineState = {
     yellowSquare: createDigits(),
     purpleCircle: createDigits(),
   },
-  notes: [],
+  notes: createNotes(),
 };
 
 function createCodeTests(): CodeTest[] {
@@ -62,5 +62,13 @@ function createDigits(): DigitState[] {
   return [1, 2, 3, 4, 5].map((value) => ({
     value,
     state: 'empty',
+  }));
+}
+
+function createNotes(): Note[] {
+  return ['A', 'B', 'C', 'D', 'E', 'F'].map(letter => ({
+    letter,
+    notes: '',
+    resolution: ''
   }));
 }

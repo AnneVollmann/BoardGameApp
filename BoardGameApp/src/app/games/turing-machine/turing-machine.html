@@ -30,5 +30,8 @@
             [codeDigits]="game.codeDigits"/>
     </div>
 
-    <app-notes />
+    <app-notes
+      [notes]="game.notes"
+      (noteChange)="game.notes = $event"
+    />
 </section>
