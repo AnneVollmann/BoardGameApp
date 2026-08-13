@@ -1,41 +1,35 @@
 <section class="game-page">
     <header>
-        <button class="btn-back">
-            <a routerLink="/">
-                <img src="/icons/arrow-back.svg" alt="button-back">
-            </a>
-        </button>
+        <div class="header-btns">
+            <button>
+                <a routerLink="/">
+                    <img src="/icons/arrow-back.svg" alt="button-back">
+                </a>
+            </button>
+            <button (click)="deleteGame()">
+                <img src="/icons/arrow-delete.svg" alt="button-delete">
+            </button>
+        </div>
 
         <div class="game-overview">
             <img class="tm-logo" src="/img/turing-machine.png" alt="turing-machine-logo">
             <app-game-information
                 [name]="game.name"
                 [gameNumber]="game.gameNumber"
-                (nameChange)="game.name = $event"
+                (nameChange)="game.name = $event; saveGame()"
                 (gameNumberChange)="game.gameNumber = $event; saveGame()"
             />
         </div>
     </header>
 
     <div class="code-tests">
-        <app-code-table
-            [codeTests]="game.codeTests"
-            (codeTestsChange)="game.codeTests = $event; saveGame()"
-        />
+        <app-code-table [codeTests]="game.codeTests" (codeTestsChange)="game.codeTests = $event; saveGame()" />
 
-        <app-test-table
-            [codeTests]="game.codeTests"
-            (codeTestsChange)="game.codeTests = $event; saveGame()"
-        />
+        <app-test-table [codeTests]="game.codeTests" (codeTestsChange)="game.codeTests = $event; saveGame()" />
 
-        <app-possible-digits
-            [codeDigits]="game.codeDigits"
-            (codeDigitsChange)="game.codeDigits = $event; saveGame()"/>
+        <app-possible-digits [codeDigits]="game.codeDigits" (codeDigitsChange)="game.codeDigits = $event; saveGame()" />
     </div>
 
-    <app-notes
-      [notes]="game.notes"
-      (noteChange)="game.notes = $event; saveGame()"
-    />
+    <app-notes [notes]="game.notes" (noteChange)="game.notes = $event; saveGame()" />
 
 </section>

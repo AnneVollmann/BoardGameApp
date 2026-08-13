@@ -25,7 +25,7 @@ export class TuringMachineStorageService {
     return JSON.parse(stored);
   }
 
-  clear(): void {
+  delete(): void {
     localStorage.removeItem(this.storageKey);
   }
 }
