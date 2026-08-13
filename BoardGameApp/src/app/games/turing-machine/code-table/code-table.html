@@ -18,7 +18,14 @@
         <tr>
             @for (column of [1,2,3]; track column) {
             <td>
-                <input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" class="code-digit">
+                <input
+                    #codeDigit
+                    type="text"
+                    maxlength="1"
+                    inputmode="numeric"
+                    pattern="[0-9]"
+                    class="code-digit"
+                    (input)="onDigitInput($event)">
             </td>
             }
         </tr>

@@ -11,6 +11,7 @@
       padding: 2px 0 2px 22px;
       border-radius: 4px;
       font-size: 18px;
+      color: var(--tm-text);
     }
     .solution {
       display: flex;
@@ -22,6 +23,7 @@
         border-radius: 4px;
         font-size: 18px;
         background-color: var(--tm-secondary);
+        color: var(--tm-text);
       }
     }
   }
