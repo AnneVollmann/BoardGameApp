@@ -2,13 +2,13 @@
     <thead>
         <tr>
             <th>
-                <img class="tm-digit-icon" src="icons/tm-triangle.svg" alt="blue triangle">
+                <img class="tm-digit-icon" src="/img/tm-triangle.svg" alt="blue triangle">
             </th>
             <th>
-                <img class="tm-digit-icon" src="icons/tm-square.svg" alt="yellow square">
+                <img class="tm-digit-icon" src="/img/tm-square.svg" alt="yellow square">
             </th>
             <th>
-                <img class="tm-digit-icon" src="icons/tm-circle.svg" alt="purple circle">
+                <img class="tm-digit-icon" src="/img/tm-circle.svg" alt="purple circle">
             </th>
         </tr>
     </thead>
@@ -21,11 +21,11 @@
                 <div class="digit-state">
                     <img
                         [class.d-none]="getState(row, column) !== 'crossed'"
-                        src="icons/tm-cross.svg"
+                        src="/img/tm-cross.svg"
                         alt="cross">
                     <img
                         [class.d-none]="getState(row, column) !== 'checked'"
-                        src="icons/tm-mark-circle.svg"
+                        src="/img/tm-mark-circle.svg"
                         alt="circle"
                         style="margin-top: -2px">
                 </div>
