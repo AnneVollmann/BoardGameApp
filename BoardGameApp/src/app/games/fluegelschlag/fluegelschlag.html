@@ -26,55 +26,22 @@
         <thead>
             <td></td>
             <td>
-                <input type="text">
+                <input type="text" class="font-bold">
             </td>
-            <td><input type="text"></td>
+            <td><input type="text" class="font-bold"></td>
         </thead>
         <tbody>
-            <tr>
-                <td>Vögel</td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-            </tr>
-            <tr>
-                <td>Bonuskarten</td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-            </tr>
-            <tr>
-                <td>Rundenziele</td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-            </tr>
-            <tr>
-                <td>Duell-Marker</td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-            </tr>
-            <tr>
-                <td>Nektar</td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-            </tr>
-            <tr>
-                <td>Eier</td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-            </tr>
-            <tr>
-                <td>Futter</td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-            </tr>
-            <tr>
-                <td>Karten</td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-            </tr>
-            <tr>
+            @for (categorie of scoringCategories; track $index) {
+                <tr>
+                    <td>{{categorie}}</td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                </tr>
+            }
+            <tr class="font-bold">
                 <td>GESAMT</td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
+                <td><input type="number" class="font-bold"></td>
+                <td><input type="number" class="font-bold"></td>
             </tr>
         </tbody>
     </table>
