@@ -1,7 +1,31 @@
-.a {
-  table,
-  th,
+h1 {
+  padding-top: 12px;
+  padding-bottom: 24px;
+}
+
+.scoring-table {
+  border-collapse: collapse;
+
   td {
-    border: 1px solid black;
+    padding: 6px 8px;
+    border-right: 1px solid;
+    border-bottom: 1px solid;
   }
+
+  td:last-child {
+    border-right: none;
+  }
+
+  tr:last-child td {
+    border-bottom: none;
+  }
+
+  tbody td:first-child {
+    width: 50%;
+  }
+}
+
+input {
+  text-align: center;
+  font-size: 18px;
 }

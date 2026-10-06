@@ -1,62 +1,81 @@
-<table class="a">
-    <tr>
-        <th></th>
-        <th></th>
-        <th>M</th>
-        <th>A</th>
-    </tr>
-    <tr>
-        <th>variabel</th>
-        <th>Vögel</th>
-        <th></th>
-        <th></th>
-    </tr>
-    <tr>
-        <th></th>
-        <th>Bonuskarten</th>
-        <th></th>
-        <th></th>
-    </tr>
-    <tr>
-        <th></th>
-        <th>Rundenziele</th>
-        <th></th>
-        <th></th>
-    </tr>
-    <tr>
-        <th></th>
-        <th>Duell-Marker</th>
-        <th></th>
-        <th></th>
-    </tr>
-    <tr>
-        <th>je 1 Punkt</th>
-        <th>Nektar</th>
-        <th></th>
-        <th></th>
-    </tr>
-    <tr>
-        <th></th>
-        <th>Eier</th>
-        <th></th>
-        <th></th>
-    </tr>
-    <tr>
-        <th></th>
-        <th>Futter</th>
-        <th></th>
-        <th></th>
-    </tr>
-    <tr>
-        <th></th>
-        <th>Karten</th>
-        <th></th>
-        <th></th>
-    </tr>
-    <tr>
-        <th></th>
-        <th>GESAMT</th>
-        <th></th>
-        <th></th>
-    </tr>
-</table>
+<section class="game-page">
+
+    <header>
+        <div class="header-btns">
+            <button>
+                <a routerLink="/">
+                    <img src="/img/btn-arrow-back.svg" alt="button-back">
+                </a>
+            </button>
+            <!-- <button (click)="confirmDelete ? deleteGame() : askDelete()">
+                <img
+                    [src]="confirmDelete
+                        ? '/img/btn-trash.svg'
+                        : '/img/btn-x.svg'"
+                    [alt]="confirmDelete
+                        ? 'delete'
+                        : 'confirm-delete'"
+                >
+            </button> -->
+        </div>
+
+        <h1>FLÜGELSCHLAG</h1>
+    </header>
+
+    <table class="scoring-table">
+        <thead>
+            <td></td>
+            <td>
+                <input type="text">
+            </td>
+            <td><input type="text"></td>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Vögel</td>
+                <td><input type="number"></td>
+                <td><input type="number"></td>
+            </tr>
+            <tr>
+                <td>Bonuskarten</td>
+                <td><input type="number"></td>
+                <td><input type="number"></td>
+            </tr>
+            <tr>
+                <td>Rundenziele</td>
+                <td><input type="number"></td>
+                <td><input type="number"></td>
+            </tr>
+            <tr>
+                <td>Duell-Marker</td>
+                <td><input type="number"></td>
+                <td><input type="number"></td>
+            </tr>
+            <tr>
+                <td>Nektar</td>
+                <td><input type="number"></td>
+                <td><input type="number"></td>
+            </tr>
+            <tr>
+                <td>Eier</td>
+                <td><input type="number"></td>
+                <td><input type="number"></td>
+            </tr>
+            <tr>
+                <td>Futter</td>
+                <td><input type="number"></td>
+                <td><input type="number"></td>
+            </tr>
+            <tr>
+                <td>Karten</td>
+                <td><input type="number"></td>
+                <td><input type="number"></td>
+            </tr>
+            <tr>
+                <td>GESAMT</td>
+                <td><input type="number"></td>
+                <td><input type="number"></td>
+            </tr>
+        </tbody>
+    </table>
+</section>
